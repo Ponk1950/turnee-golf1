@@ -504,7 +504,7 @@ const KEYS={users:'dg:users',golfers:'dg:golfers',teams:'dg:teams',tournaments:'
 courses:'dg:courses',leagues:'dg:leagues',orgs:'dg:orgs',seedVersion:'dg:seedVersion',session:'dg:session',
 kb:'dg:kb',bugs:'dg:bugs',enhancements:'dg:enhancements'};
 const SEED_VERSION='v2026-05-02b';
-const APP_BUILD='v2026-05-02-fixes38';
+const APP_BUILD='v2026-05-02-fixes39';
 // Storage shim: gracefully fall back to in-memory if localStorage is
 // blocked (sandboxed iframes, Safari Private Browsing in some configs, etc.)
 const _mem={};let _useMem=false;
@@ -2634,6 +2634,12 @@ el('button',{class:'btn ghost small',onclick:()=>showChangePassword()},'\uD83D\u
 card.appendChild(el('div',{style:{height:'.5rem'}}));
 card.appendChild(el('small',{style:{display:'block',textAlign:'center',color:'var(--muted)'}},
 'Hint: Dave PIN 1234 \u00b7 admin/admin123 \u00b7 fan PIN 1111'));
+// Build version — visible without sign-in so anyone can confirm what's
+// running. Critical for diagnosing "it's not working" reports against the
+// wrong build version.
+card.appendChild(el('div',{style:{textAlign:'center',color:'var(--muted)',
+fontSize:'.72rem',marginTop:'1rem',opacity:'.7',letterSpacing:'.5px'}},
+'Build '+APP_BUILD));
 wrap.appendChild(card);
 return wrap;
 }
